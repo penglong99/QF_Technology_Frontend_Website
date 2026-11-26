@@ -1,0 +1,421 @@
+.page {
+  --qf-blue: #0083eb;
+  --qf-blue-deep: #0a5bb5;
+  --qf-blue-rgb: 0 131 235;
+  --qf-ink: #0b1b3a;
+
+  background-color: var(--color-white);
+}
+
+.eyebrow {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.2em;
+  color: var(--qf-blue);
+  text-transform: uppercase;
+}
+
+.centered {
+  text-align: center;
+}
+
+.sectionTitle {
+  margin-top: var(--space-2);
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--qf-ink);
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgb(var(--qf-blue-rgb) / 0.05), rgb(var(--qf-blue-rgb) / 0));
+}
+
+/* The soft sweep of colour behind the hero */
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  right: -14%;
+  bottom: -68%;
+  left: -24%;
+  height: 120%;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  content: '';
+  transform: rotate(-5deg);
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -2;
+  top: -30%;
+  right: -12%;
+  width: 62%;
+  height: 92%;
+  border-radius: 50%;
+  background-color: rgb(var(--qf-blue-rgb) / 0.12);
+  content: '';
+}
+
+.heroInner {
+  display: grid;
+  gap: var(--space-8);
+  padding-block: var(--space-10);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.heroTitle {
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--qf-ink);
+}
+
+.heroTitle span {
+  display: block;
+}
+
+.heroLead {
+  font-size: clamp(16px, 1.6vw, 20px);
+  color: var(--text-secondary);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.page .secondaryAction {
+  border-color: var(--qf-blue);
+  background-color: var(--color-white);
+  color: var(--qf-blue);
+}
+
+.page .secondaryAction:hover {
+  background-color: rgb(var(--qf-blue-rgb) / 0.08);
+  color: var(--qf-blue);
+  transform: translateY(-1px);
+}
+
+.page .primaryAction {
+  background-color: var(--qf-blue);
+  box-shadow: 0 10px 22px rgb(var(--qf-blue-rgb) / 0.3);
+  color: var(--color-white);
+}
+
+.page .primaryAction:hover {
+  background-color: #006bcb;
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* The photo has a white backdrop, so multiply lets the banner colour show through it */
+.heroImage {
+  justify-self: center;
+  width: min(100%, 560px);
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+/* Our story */
+.story {
+  padding-block: var(--space-10);
+  background-color: rgb(var(--qf-blue-rgb) / 0.05);
+}
+
+.storyInner {
+  display: grid;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.storyImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 30px rgb(11 27 58 / 0.1);
+}
+
+.storyText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.storyTitle {
+  max-width: 420px;
+  font-size: clamp(28px, 3.6vw, 44px);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--qf-ink);
+}
+
+.storyLead {
+  max-width: 460px;
+  font-size: var(--font-size-body-lg);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Vision and mission */
+.purpose {
+  padding-top: var(--space-12);
+}
+
+.purposeGrid {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.purposeCard {
+  padding: var(--space-8);
+  border: 1px solid var(--border-default);
+  border-top: 3px solid var(--qf-blue);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-white);
+  box-shadow: 0 10px 26px rgb(11 27 58 / 0.06);
+}
+
+.purposeIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background-color: rgb(var(--qf-blue-rgb) / 0.1);
+  color: var(--qf-blue);
+}
+
+.purposeIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.purposeTitle {
+  margin-top: var(--space-4);
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: var(--font-weight-bold);
+  color: var(--qf-ink);
+}
+
+.purposeText {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-body-lg);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid rgb(var(--qf-blue-rgb) / 0.18);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--qf-ink);
+}
+
+.facts svg {
+  width: 16px;
+  height: 16px;
+  color: var(--qf-blue);
+}
+
+/* The meaning behind QF */
+.meaning {
+  padding-top: var(--space-12);
+}
+
+.meaningGrid {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.meaningCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  min-height: 170px;
+  padding: var(--space-6) var(--space-8);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(120deg, var(--qf-blue), var(--qf-blue-deep));
+  color: var(--color-white);
+}
+
+.meaningCard > div {
+  position: relative;
+  width: 52%;
+}
+
+.meaningCard:nth-child(2) {
+  background: rgb(var(--qf-blue-rgb) / 0.09);
+  color: var(--qf-ink);
+}
+
+.meaningLetter {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  font-size: clamp(130px, 12vw, 168px);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  color: rgb(255 255 255 / 0.14);
+  transform: translateY(-50%);
+}
+
+.meaningCard:nth-child(2) .meaningLetter {
+  color: rgb(var(--qf-blue-rgb) / 0.14);
+}
+
+.meaningTitle {
+  font-size: clamp(26px, 2.8vw, 34px);
+  font-weight: var(--font-weight-bold);
+}
+
+.meaningText {
+  max-width: 200px;
+  margin-top: var(--space-2);
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
+/* One tech partner */
+.offer {
+  padding-block: var(--space-12) var(--space-16);
+}
+
+.offerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.offerGrid li {
+  display: flex;
+}
+
+.offerCard {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-5);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  transition:
+    border-color var(--duration-normal) var(--easing-standard),
+    box-shadow var(--duration-normal) var(--easing-standard),
+    transform var(--duration-normal) var(--easing-standard);
+}
+
+.offerCard:hover {
+  border-color: rgb(var(--qf-blue-rgb) / 0.4);
+  box-shadow: 0 12px 26px rgb(var(--qf-blue-rgb) / 0.14);
+  transform: translateY(-2px);
+}
+
+.offerIcon {
+  width: 40px;
+  height: 40px;
+  stroke-width: 1.5;
+  color: var(--qf-blue);
+}
+
+.offerName {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--qf-ink);
+}
+
+.offerText {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.offerArrow {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: auto;
+  border: 1px solid rgb(var(--qf-blue-rgb) / 0.35);
+  border-radius: var(--radius-full);
+  color: var(--qf-blue);
+  transition:
+    background-color var(--duration-normal) var(--easing-standard),
+    color var(--duration-normal) var(--easing-standard);
+}
+
+.offerArrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.offerCard:hover .offerArrow {
+  background-color: var(--qf-blue);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .storyInner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: var(--space-10);
+  }
+
+  .purposeGrid,
+  .meaningGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .offerGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    padding-block: var(--space-8) var(--space-10);
+  }
+
+  .story {
+    padding-block: var(--space-8);
+  }
+}

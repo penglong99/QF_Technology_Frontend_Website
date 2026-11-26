@@ -1,0 +1,21 @@
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: var(--radius-xs);
+}
+
+.image {
+  width: auto;
+}
+
+.sm .image {
+  height: 36px;
+}
+
+.md .image {
+  height: 44px;
+}
+
+.lg .image {
+  height: 64px;
+}

@@ -1,0 +1,187 @@
+/*
+ * Design tokens — taken from the Figma "Design System" and "Developer Handoff Guide" frames.
+ * Raw palette values first, then the semantic aliases components should use.
+ *
+ * Breakpoints (CSS custom properties cannot be used inside media queries, so they are
+ * documented here and used literally):
+ *   mobile  < 768px   (4 cols, 16px margin)
+ *   tablet  ≥ 768px   (8 cols, 32px margin)
+ *   laptop  ≥ 1280px  (12 cols, 64px margin)
+ *   desktop ≥ 1440px  (12 cols, 80px margin)
+ */
+:root {
+  /* Brand & neutral */
+  --color-primary-blue: #2b52a2;
+  --color-secondary-blue: #39475c;
+  --color-charcoal: #1a1f20;
+  --color-medium-gray: #5d5f60;
+  --color-light-gray: #767676;
+  --color-off-white: #e3e3e4;
+  --color-white: #ffffff;
+  /* QF Technology logo blue — reserved for the brand mark itself. */
+  --color-brand-logo: #2b52a2;
+
+  /* Gray scale */
+  --color-gray-900: #111827;
+  --color-gray-700: #374151;
+  --color-gray-500: #6b7280;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-50: #f9fafb;
+
+  /* Blue scale */
+  --color-blue-800: #1e40af;
+  --color-blue-500: #3b82f6;
+
+  /* Status (raw) */
+  --color-error: #c0202a;
+  --color-success: #10b981;
+  --color-success-dark: #0d381c;
+  --color-warning: #f59e0b;
+  --color-warning-dark: #6f310b;
+  --color-error-light: #ef4444;
+  --color-error-dark: #3a0a0a;
+
+  /* Semantic — surface */
+  --surface-primary: var(--color-white);
+  --surface-secondary: var(--color-gray-50);
+  --surface-tertiary: var(--color-gray-100);
+  --surface-inverse: var(--color-primary-blue);
+  --surface-pressed: var(--color-gray-200);
+
+  /* Semantic — text */
+  --text-primary: var(--color-charcoal);
+  --text-secondary: var(--color-medium-gray);
+  --text-tertiary: var(--color-light-gray);
+  --text-disabled: var(--color-light-gray);
+  --text-inverse: var(--color-white);
+  --text-link: var(--color-blue-800);
+
+  /* Semantic — border */
+  --border-default: var(--color-gray-200);
+  --border-strong: var(--color-medium-gray);
+
+  /* Semantic — action */
+  --action-primary: var(--color-primary-blue);
+  --action-primary-hover: #1d3a6b;
+  --action-primary-active: #0d1d38;
+  --action-secondary: var(--color-secondary-blue);
+  --action-disabled: var(--color-light-gray);
+  --action-destructive: var(--color-error);
+  --action-destructive-hover: #a11b23;
+
+  /*
+   * Semantic — status pills. The Figma pairs solid status colours with very dark text; the
+   * rendered pills use a pale tint of each colour, which is what these tokens reproduce.
+   */
+  --status-success-bg: #dcfce7;
+  --status-success-text: #15803d;
+  --status-success-dot: var(--color-success);
+  --status-warning-bg: #fef3c7;
+  --status-warning-text: #92400e;
+  --status-error-bg: #fee2e2;
+  --status-error-text: #b91c1c;
+  --status-neutral-bg: var(--color-gray-100);
+  --status-neutral-text: var(--color-gray-700);
+  --status-info-bg: #dbeafe;
+  --status-info-text: var(--color-blue-800);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgb(59 130 246 / 0.45);
+
+  /* Typography — Geist, 24 styles in Figma */
+  --font-family-sans:
+    'Geist Variable', 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-display: 48px;
+  --font-size-h1: 40px;
+  --font-size-h2: 32px;
+  --font-size-h3: 24px;
+  --font-size-h4: 20px;
+  --font-size-h5: 18px;
+  --font-size-body-lg: 16px;
+  --font-size-body: 14px;
+  --font-size-caption: 13px;
+  --font-size-small: 12px;
+  --font-size-micro: 11px;
+  --font-size-micro-small: 10px;
+
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.5;
+
+  /* Spacing — 8pt-based scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-sm: 0 2px 6px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 24px rgb(0 0 0 / 0.12);
+
+  /* Layout */
+  --container-max-width: 1440px;
+  --container-padding: var(--space-4);
+  --grid-gutter: var(--space-4);
+  --header-height: 72px;
+  --sidebar-width: 240px;
+
+  /* Component specs (Developer Handoff § 05) */
+  --button-height-sm: 32px;
+  --button-height-md: 35px;
+  --button-height-lg: 44px;
+  --input-height: 44px;
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layers */
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-8);
+    --grid-gutter: var(--space-6);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: var(--space-16);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-padding: var(--space-20);
+  }
+}

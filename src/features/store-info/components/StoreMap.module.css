@@ -1,0 +1,58 @@
+.map {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: var(--radius-xl);
+  min-height: 200px;
+}
+
+.illustration {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.callout {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: calc(100% - 2 * var(--space-4));
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-primary);
+  box-shadow: var(--shadow-md);
+  color: var(--text-primary);
+}
+
+.calloutTitle {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.coordinates {
+  font-size: var(--font-size-micro-small);
+  color: var(--text-secondary);
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-link);
+}
+
+.map:hover .mapLink {
+  text-decoration: underline;
+}
+
+.mapLink svg {
+  width: 12px;
+  height: 12px;
+}

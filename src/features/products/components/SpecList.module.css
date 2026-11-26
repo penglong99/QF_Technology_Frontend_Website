@@ -1,0 +1,77 @@
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Compact (product cards) */
+.compact {
+  gap: var(--space-2);
+}
+
+.compact .item {
+  gap: var(--space-2);
+  font-size: var(--font-size-small);
+  color: var(--text-primary);
+}
+
+.compact .icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Detailed (product details page) */
+.detailed {
+  gap: var(--space-4);
+}
+
+.detailed .item {
+  gap: var(--space-4);
+}
+
+.detailed .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background-color: var(--surface-tertiary);
+  color: var(--action-primary);
+}
+
+.detailed .icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.label {
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+}
+
+.detailed .value {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}

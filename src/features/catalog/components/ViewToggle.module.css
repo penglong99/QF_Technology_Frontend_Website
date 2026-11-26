@@ -1,0 +1,25 @@
+.toggle {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+
+.option {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+}
+
+.option svg {
+  width: 15px;
+  height: 15px;
+}
+
+.selected {
+  background-color: var(--surface-tertiary);
+  color: var(--text-primary);
+}

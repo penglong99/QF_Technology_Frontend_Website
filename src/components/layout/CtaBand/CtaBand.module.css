@@ -1,0 +1,50 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+
+/* Circuit-board traces, faded out behind the text so it stays easy to read */
+.band::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url('/images/site/pattern-circuit.svg') center / 200px 200px repeat;
+  content: '';
+  opacity: 0.13;
+  mask-image: radial-gradient(ellipse 60% 75% at center, transparent 30%, #000 80%);
+}
+
+/* Soft light glows in two corners */
+.band::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 15%, rgb(0 131 235 / 0.45), transparent 32%),
+    radial-gradient(circle at 92% 90%, rgb(0 131 235 / 0.4), transparent 34%);
+  content: '';
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  padding-block: var(--space-16);
+  text-align: center;
+}
+
+.title {
+  max-width: 600px;
+  font-size: clamp(24px, 3vw, var(--font-size-h2));
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}

@@ -1,0 +1,601 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.title {
+  font-size: var(--font-size-h3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.list dt {
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.list dd {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  line-height: 1.9;
+}
+
+.phone {
+  font-weight: var(--font-weight-medium);
+  color: var(--action-primary);
+}
+
+.phone:hover {
+  text-decoration: underline;
+}
+
+/* Band (homepage) */
+.band {
+  --qf-blue: #0083eb;
+  --qf-blue-rgb: 0 131 235;
+  --qf-ink: #0b1b3a;
+
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.bandInner {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-10);
+}
+
+.bandDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.bandBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-right: var(--space-4);
+  border-radius: var(--radius-full);
+  background-color: rgb(var(--qf-blue-rgb) / 0.12);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--qf-ink);
+}
+
+.bandBadgeIcon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background-color: var(--qf-blue);
+  color: var(--color-white);
+}
+
+.bandBadgeIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bandTitle {
+  font-size: clamp(30px, 3.1vw, 44px);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--qf-ink);
+}
+
+.bandTitleAccent {
+  color: var(--qf-blue);
+}
+
+.intro {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-body);
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* The icon lives in the dt (a dl row may only hold dt and dd), so it's pulled into the left gutter */
+.infoRow {
+  position: relative;
+  min-height: 52px;
+  padding-left: 68px;
+}
+
+.infoRow dt {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--qf-ink);
+}
+
+.infoRow dd {
+  margin: 0;
+  font-size: var(--font-size-small);
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.infoIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background-color: var(--qf-blue);
+  color: var(--color-white);
+}
+
+.infoIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Lucide icons are outlines; this fills them in, so the pin's dot and the shield's tick need redrawing */
+.solidIcon {
+  fill: currentColor;
+}
+
+.infoIcon .solidIcon circle {
+  fill: var(--qf-blue);
+  stroke: var(--qf-blue);
+}
+
+.feature:last-child .solidIcon path:last-child {
+  fill: none;
+  stroke: var(--color-white);
+}
+
+.phoneNumbers.phoneNumbers {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.bandPhone {
+  color: inherit;
+  transition: color var(--duration-normal) var(--easing-standard);
+}
+
+.bandPhone:hover {
+  color: var(--qf-blue);
+}
+
+.bandActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.band .directions {
+  border-radius: var(--radius-full);
+  transition:
+    transform var(--duration-normal) var(--easing-standard),
+    box-shadow var(--duration-normal) var(--easing-standard),
+    background-color var(--duration-normal) var(--easing-standard);
+}
+
+.band .directions {
+  background-color: var(--qf-blue);
+  box-shadow: 0 8px 20px rgb(var(--qf-blue-rgb) / 0.3);
+  color: var(--color-white);
+}
+
+.band .directions:hover {
+  background-color: #006bcb;
+  box-shadow: 0 10px 24px rgb(var(--qf-blue-rgb) / 0.38);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.directions svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Stacked layouts: the photo fades into the white above the map */
+.bandShop {
+  width: min(100%, 320px);
+  justify-self: center;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 93%, transparent 100%),
+    linear-gradient(to bottom, #000 90%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.bandShop img {
+  width: 100%;
+  height: auto;
+}
+
+.bandSide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.bandMap {
+  /* Where the shop sits on the map picture, as a share of its width and height */
+  --map-shop-x: 49.6%;
+  --map-shop-y: 52%;
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+  container-type: inline-size;
+  border: 7px solid var(--color-white);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-white);
+  box-shadow:
+    0 0 0 1px rgb(var(--qf-blue-rgb) / 0.1),
+    0 12px 32px rgb(11 27 58 / 0.12);
+  transition: box-shadow var(--duration-normal) var(--easing-standard);
+}
+
+.bandMap:hover {
+  box-shadow:
+    0 0 0 1px rgb(var(--qf-blue-rgb) / 0.2),
+    0 14px 38px rgb(var(--qf-blue-rgb) / 0.22);
+}
+
+.mapCanvas {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+/* Softens the busy imagery so the pin and card stand out */
+.mapCanvas::after {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--map-shop-x) var(--map-shop-y),
+    transparent 28%,
+    rgb(11 27 58 / 0.28) 100%
+  );
+  content: '';
+  pointer-events: none;
+}
+
+/* Zooms in on the shop, so the marker stays on it */
+.mapCanvas > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: var(--map-shop-x) var(--map-shop-y);
+  transition: transform 600ms var(--easing-standard);
+}
+
+.bandMap:hover .mapCanvas > img {
+  transform: scale(1.05);
+}
+
+/* Zero-sized anchor on the shop: the pin's tip and the pulse centre sit exactly here */
+.mapMarker {
+  --map-pin-width: clamp(32px, 7.5cqw, 46px);
+
+  position: absolute;
+  top: var(--map-shop-y);
+  left: var(--map-shop-x);
+  z-index: 1;
+  width: 0;
+  height: 0;
+}
+
+.mapPulse {
+  position: absolute;
+  width: calc(var(--map-pin-width) * 1.5);
+  height: calc(var(--map-pin-width) * 0.6);
+  margin: calc(var(--map-pin-width) * -0.3) 0 0 calc(var(--map-pin-width) * -0.75);
+  border-radius: var(--radius-full);
+  background-color: rgb(var(--qf-blue-rgb) / 0.55);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.5);
+  animation: map-pulse 2.4s ease-out infinite;
+}
+
+@keyframes map-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(0.35);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.mapPin {
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--map-pin-width) / -2);
+  width: var(--map-pin-width);
+  aspect-ratio: 4 / 5;
+  filter: drop-shadow(0 4px 6px rgb(11 27 58 / 0.45));
+  transform-origin: bottom center;
+  transition: transform var(--duration-normal) var(--easing-standard);
+}
+
+.bandMap:hover .mapPin {
+  transform: translateY(-3px) scale(1.06);
+}
+
+.mapPin svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: var(--qf-blue);
+  stroke: var(--color-white);
+  stroke-width: 1.5;
+}
+
+.mapPin img {
+  position: absolute;
+  top: 12%;
+  left: 15%;
+  box-sizing: border-box;
+  width: 70%;
+  aspect-ratio: 1;
+  padding: 9%;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  object-fit: contain;
+}
+
+.mapPinLabel {
+  position: absolute;
+  bottom: calc(var(--map-pin-width) * 0.42);
+  left: calc(var(--map-pin-width) * 0.62);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background-color: var(--qf-ink);
+  box-shadow: 0 4px 10px rgb(11 27 58 / 0.35);
+  font-size: clamp(10px, 2cqw, 12px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+.mapCredit {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  z-index: 1;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background-color: rgb(11 27 58 / 0.55);
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--color-white);
+}
+
+.mapCallout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.mapLogo {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: clamp(36px, 8cqw, 46px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(var(--qf-blue-rgb) / 0.3);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+}
+
+.mapLogo img {
+  width: 66%;
+  height: auto;
+}
+
+.mapCalloutText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  min-width: 0;
+  font-size: clamp(11px, 2cqw, 13px);
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.mapCalloutText strong {
+  font-size: clamp(13px, 2.8cqw, 17px);
+  font-weight: var(--font-weight-semibold);
+  color: var(--qf-ink);
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--qf-blue);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  white-space: nowrap;
+  transition: background-color var(--duration-normal) var(--easing-standard);
+}
+
+.bandMap:hover .mapLink {
+  background-color: #006bcb;
+}
+
+.mapLink svg {
+  width: 12px;
+  height: 12px;
+  transition: transform var(--duration-normal) var(--easing-standard);
+}
+
+.bandMap:hover .mapLink svg {
+  transform: translateX(2px);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-small);
+  line-height: 1.3;
+  color: var(--qf-ink);
+}
+
+.feature svg {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  color: var(--qf-blue);
+}
+
+/* Card (product details) */
+.card {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+
+.card .phone {
+  color: var(--text-inverse);
+}
+
+.cardMapColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardMap {
+  min-height: 140px;
+}
+
+@media (min-width: 768px) {
+  .bandInner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: var(--space-6);
+  }
+
+  .bandShop {
+    align-self: end;
+    width: min(100%, 400px);
+  }
+
+  .bandSide {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .card {
+    grid-template-columns: 1fr minmax(260px, 400px);
+    align-items: center;
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+/* Three columns: the photo runs the full height of the section and sits on its bottom edge */
+@media (min-width: 1200px) {
+  .bandInner {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.6fr) minmax(0, 1fr);
+    column-gap: 0;
+    padding-block: 0;
+  }
+
+  .intro span {
+    display: block;
+  }
+
+  .bandDetails {
+    padding-block: var(--space-10);
+  }
+
+  /* Backdrop for the whole section: the copy and map sit over its clouds and rings */
+  .bandShop {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 378px);
+    width: auto;
+    height: 100%;
+    aspect-ratio: 819 / 724;
+    mask-image: linear-gradient(to right, transparent 0, #000 7%);
+  }
+
+  .bandShop img {
+    height: 100%;
+  }
+
+  .bandSide {
+    display: flex;
+    grid-column: 3;
+    align-items: stretch;
+    padding-block: var(--space-10);
+  }
+
+  .features {
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .feature {
+    font-size: var(--font-size-small);
+  }
+
+  .feature + .feature {
+    padding-left: var(--space-2);
+    border-left: 1px solid rgb(var(--qf-blue-rgb) / 0.2);
+  }
+
+  .feature span {
+    max-width: 72px;
+  }
+
+  .feature svg {
+    width: 24px;
+    height: 24px;
+  }
+}

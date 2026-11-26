@@ -1,0 +1,181 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-block: var(--space-12) var(--space-16);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, var(--font-size-h1));
+}
+
+.lead {
+  max-width: 520px;
+  font-size: var(--font-size-body-lg);
+  color: var(--text-secondary);
+}
+
+.tableScroller {
+  /* Keeps the pickers' visually hidden labels inside the scroll area, not the page */
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+}
+
+.table {
+  --compare-blue-rgb: 0 131 235;
+
+  width: 100%;
+  min-width: 720px;
+  /* Equal product columns, whatever each product's text length */
+  table-layout: fixed;
+  font-size: var(--font-size-small);
+}
+
+.table th,
+.table td {
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+}
+
+.table tbody tr {
+  border-top: 1px solid var(--border-default);
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: var(--surface-secondary);
+}
+
+.table tbody th {
+  font-weight: var(--font-weight-semibold);
+}
+
+.table .corner {
+  width: 24%;
+  padding: var(--space-6) var(--space-5);
+  background: linear-gradient(
+    155deg,
+    rgb(var(--compare-blue-rgb) / 0.14),
+    rgb(var(--compare-blue-rgb) / 0.03) 70%
+  );
+  vertical-align: middle;
+}
+
+.cornerIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-lg);
+  background-color: var(--action-primary);
+  box-shadow: 0 8px 18px rgb(var(--compare-blue-rgb) / 0.3);
+  color: var(--color-white);
+}
+
+.cornerIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cornerTitle {
+  display: block;
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.cornerHint {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.productHeader {
+  vertical-align: bottom;
+}
+
+.productImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.productName {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.productName:hover {
+  color: var(--action-primary);
+  text-decoration: underline;
+}
+
+.guide {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.guideText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-size: var(--font-size-body);
+  color: var(--text-primary);
+}
+
+.guideTitle {
+  position: relative;
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-h3);
+}
+
+.guideTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  background-color: var(--action-primary);
+}
+
+.guideLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.guideLink:hover {
+  color: var(--action-primary);
+}
+
+.guideLink svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 1024px) {
+  .guide {
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+    align-items: start;
+    gap: var(--space-16);
+  }
+}

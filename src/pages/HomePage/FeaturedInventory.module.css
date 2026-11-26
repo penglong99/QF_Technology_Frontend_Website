@@ -1,0 +1,376 @@
+/* ---------- Section ---------- */
+.section {
+  --qf-blue: #0083eb;
+  --qf-blue-rgb: 0 131 235;
+  --qf-ink: #0b1b3a;
+  --card-gap: var(--space-6);
+
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--space-16);
+  background:
+    linear-gradient(
+      118deg,
+      transparent 58%,
+      rgb(var(--qf-blue-rgb) / 0.05) 58% 76%,
+      transparent 76%
+    ),
+    linear-gradient(62deg, rgb(var(--qf-blue-rgb) / 0.06) 0 14%, transparent 14%),
+    radial-gradient(60% 80% at 100% 0%, rgb(var(--qf-blue-rgb) / 0.09), transparent 70%),
+    linear-gradient(180deg, #f8fbff, var(--color-white));
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--qf-ink);
+}
+
+.titleAccent {
+  position: relative;
+  color: var(--qf-blue);
+}
+
+/* Swoosh that tapers away from the end of the word */
+.titleAccent::after {
+  content: '';
+  position: absolute;
+  top: 72%;
+  left: 66%;
+  width: 62%;
+  height: 16px;
+  border-bottom: 3px solid var(--qf-blue);
+  border-radius: 0 0 100% 40%;
+  mask-image: linear-gradient(to right, #000 55%, transparent 100%);
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+.description {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-body-lg);
+  color: var(--text-secondary);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.controls .viewAll {
+  height: 48px;
+  margin-right: auto;
+  padding-inline: var(--space-6);
+  border-color: rgb(var(--qf-blue-rgb) / 0.18);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  box-shadow: 0 6px 18px rgb(var(--qf-blue-rgb) / 0.12);
+  color: var(--qf-blue);
+  transition:
+    transform var(--duration-normal) var(--easing-standard),
+    box-shadow var(--duration-normal) var(--easing-standard),
+    border-color var(--duration-normal) var(--easing-standard);
+}
+
+.controls .viewAll:hover {
+  border-color: rgb(var(--qf-blue-rgb) / 0.45);
+  background-color: var(--color-white);
+  box-shadow: 0 10px 24px rgb(var(--qf-blue-rgb) / 0.18);
+  color: var(--qf-blue);
+  transform: translateY(-1px);
+}
+
+.arrow {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(var(--qf-blue-rgb) / 0.12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  box-shadow: 0 6px 18px rgb(var(--qf-blue-rgb) / 0.14);
+  color: var(--qf-blue);
+  cursor: pointer;
+  transition:
+    transform var(--duration-normal) var(--easing-standard),
+    box-shadow var(--duration-normal) var(--easing-standard),
+    opacity var(--duration-normal) var(--easing-standard);
+}
+
+.arrow svg {
+  width: 22px;
+  height: 22px;
+}
+
+.arrowNext {
+  border-color: transparent;
+  background-color: var(--qf-blue);
+  box-shadow: 0 8px 20px rgb(var(--qf-blue-rgb) / 0.35);
+  color: var(--color-white);
+}
+
+.arrow:hover:not(:disabled) {
+  box-shadow: 0 10px 24px rgb(var(--qf-blue-rgb) / 0.3);
+  transform: translateY(-1px);
+}
+
+.arrow:disabled {
+  background-color: var(--color-white);
+  border-color: rgb(var(--qf-blue-rgb) / 0.12);
+  box-shadow: none;
+  color: var(--qf-blue);
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* ---------- Track ---------- */
+
+/* Runs to the screen edges while the first card stays aligned with the heading */
+.track {
+  --bleed: max(
+    var(--container-padding),
+    calc((100vw - var(--container-max-width)) / 2 + var(--container-padding))
+  );
+
+  display: flex;
+  gap: var(--card-gap);
+  margin: calc(var(--space-3) * -1) calc(var(--bleed) * -1);
+  padding: var(--space-3) var(--bleed) var(--space-8);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--bleed);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track[data-dragging] {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.track[data-dragging] a {
+  pointer-events: none;
+}
+
+.trackHasMore {
+  mask-image: linear-gradient(to right, #000 calc(100% - 96px), rgb(0 0 0 / 0.25) 100%);
+}
+
+.slide {
+  flex: 0 0 82%;
+  display: flex;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* ---------- Card ---------- */
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-white);
+  box-shadow: 0 8px 28px rgb(11 27 58 / 0.07);
+  transition:
+    transform var(--duration-normal) var(--easing-standard),
+    box-shadow var(--duration-normal) var(--easing-standard);
+}
+
+.media {
+  position: relative;
+}
+
+.imageLink {
+  display: block;
+}
+
+.image {
+  aspect-ratio: 10 / 7;
+}
+
+/* The photos are shot wide; crop in so the product fills the frame */
+.image img {
+  transform: scale(1.2);
+  transition: transform 400ms var(--easing-standard);
+}
+
+.category,
+.card .stock {
+  position: absolute;
+  top: var(--space-3);
+  padding: 6px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+}
+
+.category {
+  left: var(--space-3);
+  background-color: var(--qf-blue);
+  color: var(--color-white);
+}
+
+.card .stock {
+  right: var(--space-3);
+  gap: 6px;
+  box-shadow: 0 2px 8px rgb(11 27 58 / 0.08);
+}
+
+.stockDot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: currentColor;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.brand {
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+}
+
+.name {
+  margin-top: 2px;
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  color: var(--qf-ink);
+}
+
+.nameLink {
+  transition: color var(--duration-normal) var(--easing-standard);
+}
+
+.nameLink:hover {
+  color: var(--qf-blue);
+}
+
+.card .specs {
+  gap: 10px;
+}
+
+.card .specs svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-1);
+}
+
+.price > span:first-child {
+  font-size: var(--font-size-h5);
+  color: var(--qf-blue);
+}
+
+.card .details {
+  height: 48px;
+  border-color: var(--border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  color: var(--qf-ink);
+}
+
+.card .details:hover {
+  border-color: var(--qf-blue);
+  background-color: rgb(var(--qf-blue-rgb) / 0.06);
+  color: var(--qf-blue);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    box-shadow: 0 16px 36px rgb(var(--qf-blue-rgb) / 0.16);
+    transform: translateY(-4px);
+  }
+
+  .card:hover .image img {
+    transform: scale(1.25);
+  }
+}
+
+/* ---------- Progress ---------- */
+.progress {
+  position: relative;
+  width: min(100%, 720px);
+  height: 6px;
+  margin-inline: auto;
+  border-radius: var(--radius-full);
+  background-color: rgb(var(--qf-blue-rgb) / 0.12);
+  overflow: hidden;
+}
+
+.progressThumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--qf-blue);
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 640px) {
+  .slide {
+    flex-basis: calc((100% - var(--card-gap)) / 2.15);
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .controls .viewAll {
+    margin-right: var(--space-2);
+  }
+
+  .slide {
+    flex-basis: calc((100% - var(--card-gap) * 2) / 2.6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide {
+    flex-basis: calc((100% - var(--card-gap) * 3) / 3.6);
+  }
+}
+
+@media (min-width: 1280px) {
+  .slide {
+    flex-basis: calc((100% - var(--card-gap) * 3) / 4.15);
+  }
+}

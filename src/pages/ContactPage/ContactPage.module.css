@@ -1,0 +1,145 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-block: var(--space-12) var(--space-16);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Contact details card */
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-2xl);
+  background-color: var(--surface-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.infoItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  padding-block: var(--space-4);
+}
+
+.infoItem + .infoItem {
+  border-top: 1px solid var(--border-default);
+}
+
+.infoIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background-color: rgb(43 82 162 / 0.12);
+  color: var(--action-primary);
+}
+
+.infoIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.infoBody {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.infoTitle {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.infoText {
+  font-size: var(--font-size-caption);
+  color: var(--text-secondary);
+}
+
+.infoText a:hover {
+  color: var(--action-primary);
+  text-decoration: underline;
+}
+
+.infoAction {
+  flex-shrink: 0;
+  gap: var(--space-2);
+  margin-left: calc(48px + var(--space-4));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.infoAction svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Map card */
+.mapCard {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  border: 6px solid var(--surface-primary);
+  border-radius: var(--radius-2xl);
+  background-color: var(--surface-tertiary);
+  box-shadow: var(--shadow-lg);
+}
+
+.mapFrame {
+  /* Height of Google's place card, cropped off the top of the embed. */
+  --map-crop: 200px;
+
+  position: absolute;
+  top: calc(-1 * var(--map-crop));
+  left: 0;
+  width: 100%;
+  height: calc(100% + var(--map-crop));
+  border: 0;
+}
+
+.mapButton {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+}
+
+.mapButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (min-width: 768px) {
+  .infoCard {
+    padding: var(--space-2) var(--space-6);
+  }
+
+  .infoItem {
+    flex-wrap: nowrap;
+  }
+
+  .infoAction {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .mapCard {
+    min-height: 100%;
+  }
+}

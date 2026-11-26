@@ -1,0 +1,130 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-primary);
+  transition:
+    box-shadow var(--duration-normal) var(--easing-standard),
+    border-color var(--duration-normal) var(--easing-standard);
+}
+
+.card:hover {
+  border-color: var(--color-gray-500);
+  box-shadow: var(--shadow-md);
+}
+
+.imageLink {
+  display: block;
+}
+
+.image {
+  aspect-ratio: 5 / 3;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.compact .label {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.name {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+.nameLink:hover {
+  color: var(--action-primary);
+  text-decoration: underline;
+}
+
+.brand {
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+}
+
+.specs {
+  margin-top: var(--space-1);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--font-size-small);
+}
+
+.highlights li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.highlights svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-success);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* List layout (catalog view toggle) */
+@media (min-width: 768px) {
+  .list {
+    flex-direction: row;
+  }
+
+  .list .imageLink {
+    flex: 0 0 280px;
+  }
+
+  .list .image {
+    height: 100%;
+    aspect-ratio: auto;
+    min-height: 200px;
+  }
+
+  .list .footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .list .actions {
+    width: 240px;
+  }
+}

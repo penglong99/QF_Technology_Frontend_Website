@@ -1,0 +1,59 @@
+.page {
+  padding-block: var(--space-6) var(--space-16);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+}
+
+.sidebar {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.count {
+  font-size: var(--font-size-caption);
+}
+
+.toolbarControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.pagination {
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .sidebar {
+    display: block;
+    align-self: start;
+  }
+
+  .filterButton {
+    display: none;
+  }
+}

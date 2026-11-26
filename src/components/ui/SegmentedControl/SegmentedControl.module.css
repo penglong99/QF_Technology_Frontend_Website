@@ -1,0 +1,39 @@
+.group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.option {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background-color: var(--surface-primary);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard);
+}
+
+.md .option {
+  height: 32px;
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-caption);
+}
+
+.sm .option {
+  height: 24px;
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-small);
+}
+
+.option:hover:not(.selected) {
+  background-color: var(--surface-tertiary);
+  color: var(--text-primary);
+}
+
+.selected {
+  background-color: var(--action-primary);
+  border-color: var(--action-primary);
+  color: var(--text-inverse);
+}

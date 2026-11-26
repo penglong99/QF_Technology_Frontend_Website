@@ -1,0 +1,111 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-block: var(--space-6) var(--space-16);
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.overview {
+  display: grid;
+  gap: var(--space-8);
+}
+
+/* ---------- Purchase panel ---------- */
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.tag {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.name {
+  font-size: clamp(28px, 3.5vw, var(--font-size-h1));
+  line-height: 1.15;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.availabilityDot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background-color: currentColor;
+}
+
+.in-stock {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.low-stock {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.out-of-stock {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-text);
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border-default);
+}
+
+.reference {
+  align-self: center;
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+}
+
+/* ---------- Tabs & related ---------- */
+.tabs {
+  margin-top: var(--space-4);
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 720px;
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+}
+
+.related {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.relatedTitle {
+  font-size: var(--font-size-h4);
+}
+
+@media (min-width: 1024px) {
+  .overview {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-10);
+  }
+}

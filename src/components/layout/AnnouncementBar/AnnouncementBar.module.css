@@ -1,0 +1,29 @@
+.bar {
+  background-color: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 36px;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background-color: rgb(255 255 255 / 0.5);
+}
+
+@media (max-width: 767px) {
+  .divider,
+  .secondary {
+    display: none;
+  }
+}

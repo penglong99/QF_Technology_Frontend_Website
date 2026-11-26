@@ -1,0 +1,231 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background-color: var(--surface-primary);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  min-height: var(--header-height);
+}
+
+.desktopNav {
+  display: none;
+  margin-left: var(--space-12);
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  padding-block: var(--space-2);
+}
+
+.desktopNav .active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background-color: var(--action-primary);
+}
+
+.navLink:hover {
+  color: var(--action-primary);
+}
+
+.active {
+  color: var(--action-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ---------- Catalog brand dropdown ---------- */
+.navItemWithMenu {
+  position: relative;
+}
+
+.navChevron {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+/* Starts at the link and pads down to the panel, so the pointer can cross the gap */
+.brandMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1;
+  padding-top: var(--space-5);
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard),
+    visibility var(--duration-fast);
+}
+
+.navItemWithMenu:hover .brandMenu,
+.navItemWithMenu:focus-within .brandMenu {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.navItemWithMenu:hover .navChevron,
+.navItemWithMenu:focus-within .navChevron {
+  transform: rotate(180deg);
+}
+
+.brandPanel {
+  width: 380px;
+  padding: var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-primary);
+  box-shadow: 0 18px 40px rgb(11 27 58 / 0.14);
+}
+
+.brandTitle {
+  padding: 0 var(--space-2) var(--space-2);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.brandList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px var(--space-2);
+}
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.brandLink:hover,
+.brandLink:focus-visible {
+  background-color: var(--surface-tertiary);
+  color: var(--action-primary);
+}
+
+.brandCount {
+  min-width: 22px;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-secondary);
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.brandAll {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-2) 0;
+  border-top: 1px solid var(--border-default);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--action-primary);
+}
+
+.brandAll:hover {
+  text-decoration: underline;
+}
+
+.brandAll svg {
+  width: 14px;
+  height: 14px;
+}
+
+.actions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.search {
+  flex: 1;
+  min-width: 0;
+  max-width: 320px;
+}
+
+.mobileNav {
+  border-top: 1px solid var(--border-default);
+  background-color: var(--surface-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.mobileList {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-2);
+}
+
+.mobileLink {
+  display: block;
+  padding: var(--space-3) 0;
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-medium);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.mobileBrands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.mobileBrand {
+  display: block;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-caption);
+  color: var(--text-primary);
+}
+
+@media (min-width: 1280px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .menuButton,
+  .mobileNav {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+.stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-primary);
+  overflow: hidden;
+}
+
+.md {
+  height: var(--button-height-lg);
+}
+
+.sm {
+  height: var(--button-height-sm);
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  color: var(--text-primary);
+}
+
+.sm .step {
+  width: 30px;
+}
+
+.step svg {
+  width: 16px;
+  height: 16px;
+}
+
+.step:hover:not(:disabled) {
+  background-color: var(--surface-tertiary);
+}
+
+.step:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.input {
+  width: 44px;
+  border: none;
+  border-inline: 1px solid var(--border-default);
+  text-align: center;
+  font-weight: var(--font-weight-semibold);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.sm .input {
+  width: 36px;
+  font-size: var(--font-size-caption);
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
